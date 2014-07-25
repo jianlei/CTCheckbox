@@ -3,6 +3,7 @@
 //  CTCheckbox
 //
 //  Created by 和泉田 領一 on 2013/03/06.
+//  Modified by 王建磊
 //  Copyright (c) 2013年 CAPH. All rights reserved.
 //
 
@@ -74,12 +75,14 @@ static const float CTCheckboxDefaultSideLength = 20.0;
 {
     UIColor *color;
 
-    if (state & UIControlStateNormal) {
+    if (state == UIControlStateNormal) {
         color = self.colorDictionary[@(UIControlStateNormal)];
     } else if (state & UIControlStateSelected) {
         color = self.colorDictionary[@(UIControlStateSelected)];
     } else if (state & UIControlStateDisabled) {
         color = self.colorDictionary[@(UIControlStateDisabled)];
+    } else if(state & UIControlStateHighlighted){
+        color = self.colorDictionary[@(UIControlStateHighlighted)];
     }
 
     if (!color) {
@@ -94,12 +97,14 @@ static const float CTCheckboxDefaultSideLength = 20.0;
 {
     UIColor *color;
 
-    if (state & UIControlStateNormal) {
+    if (state == UIControlStateNormal) {
         color = self.backgroundColorDictionary[@(UIControlStateNormal)];
     } else if (state & UIControlStateSelected) {
         color = self.backgroundColorDictionary[@(UIControlStateSelected)];
     } else if (state & UIControlStateDisabled) {
         color = self.backgroundColorDictionary[@(UIControlStateDisabled)];
+    } else if(state & UIControlStateHighlighted){
+        color = self.backgroundColorDictionary[@(UIControlStateHighlighted)];
     }
 
     if (!color) {
@@ -127,12 +132,14 @@ static const float CTCheckboxDefaultSideLength = 20.0;
 
 - (void)setColor:(UIColor *)color forControlState:(UIControlState)state
 {
-    if (state & UIControlStateNormal) {
+    if (state == UIControlStateNormal) {
         self.colorDictionary[@(UIControlStateNormal)] = color;
     } else if (state & UIControlStateSelected) {
         self.colorDictionary[@(UIControlStateSelected)] = color;
     } else if (state & UIControlStateDisabled) {
         self.colorDictionary[@(UIControlStateDisabled)] = color;
+    }else if(state & UIControlStateHighlighted){
+        self.colorDictionary[@(UIControlStateHighlighted)] = color;
     }
 
     [self changeColorForState:self.state];
@@ -140,12 +147,14 @@ static const float CTCheckboxDefaultSideLength = 20.0;
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor forControlState:(UIControlState)state
 {
-    if (state & UIControlStateNormal) {
+    if (state == UIControlStateNormal) {
         self.backgroundColorDictionary[@(UIControlStateNormal)] = backgroundColor;
     } else if (state & UIControlStateSelected) {
         self.backgroundColorDictionary[@(UIControlStateSelected)] = backgroundColor;
     } else if (state & UIControlStateDisabled) {
         self.backgroundColorDictionary[@(UIControlStateDisabled)] = backgroundColor;
+    } else if(state & UIControlStateHighlighted){
+        self.backgroundColorDictionary[@(UIControlStateHighlighted)] = backgroundColor;
     }
 
     [self changeBackgroundColorForState:self.state];
