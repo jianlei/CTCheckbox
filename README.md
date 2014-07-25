@@ -1,3 +1,9 @@
+Fix CTCheckbox error, add UIControlStateHighlighted status and fix bugs .
+
+fix bugs :
+
+1, fix setColor:forControlState method doesn't work when I set UIControlStateNormal .
+
 CTCheckbox
 ==========
 
